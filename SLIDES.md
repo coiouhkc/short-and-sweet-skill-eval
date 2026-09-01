@@ -1,41 +1,51 @@
 ---
 marp: true
-title: Short and sweet
-description: Short and sweet
+title: Short and sweet intro to SKILL testing
+description: Short and sweet intro to SKILL testing
 theme: uncover
 paginate: true
 _paginate: false
-header: "**Name Surname** Short and Sweet"
-footer: "![image height:32px](https://i.picsum.photos/id/421/200/32.jpg?hmac=vqPQvcRzQRThfBK-Hj8n-PlZJsL8eG1zRTwk5hit1L0)"
-
-
-
 ---
 
 # Short and sweet
 
-## Topic
+## Intro to SKILL testing
 
 ---
 
 # Intro, reason & background
 
-<!--
-Some intro.
-Then some reason and background.
--->
+![](resources/meme-skill-is-good.png)
 
 ---
 
-# Use case 1
+# Basics
+
+## Anthropic/ Skilljar
+
+https://anthropic.skilljar.com/claude-with-the-anthropic-api?next=%2Fclaude-with-the-anthropic-api%2F287749
+
+Prompt engineering and evaluation
 
 ---
 
-# Use case 2
+# Tool 1
+
+## Agent Skills
+
+https://agentskills.io/skill-creation/evaluating-skills
+
+`evals.json`
 
 ---
 
-# Demo
+# Tool 2
+
+## Promptfoo
+
+https://www.promptfoo.dev/
+
+`promptfooconfig.yaml`
 
 ---
 
