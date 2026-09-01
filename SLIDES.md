@@ -45,6 +45,7 @@ Then some reason and background.
 * https://agentskills.io/skill-creation/evaluating-skills
 * https://www.promptfoo.dev/docs/intro/
 * https://github.com/promptfoo/promptfoo/issues/9203
+* https://agentevals.io/
 
 ---
 

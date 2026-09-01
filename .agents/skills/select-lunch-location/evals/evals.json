@@ -1,0 +1,61 @@
+{
+  "skill_name": "select-lunch-location",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Time for our weekly team lunch! It's just Alex, Priya, and Jordan today, and we're all at the Riverside Office. Nobody's had a birthday recently. Find us somewhere good.",
+      "expected_output": "A single, specific lunch location suggestion within roughly a 15-minute walk of Riverside Office (assuming decent weather), with a brief rationale. The participant list used is exactly Alex, Priya, Jordan. If the suggestion is accepted, a LUNCH-2026-09-01.md file is created following the SKILL.md template with name, participants, date, and location frontmatter.",
+      "assertions": [
+        "The response proposes exactly one specific restaurant/location, not a generic category or a list of options with no pick.",
+        "The proposed location is described as within roughly a 15-minute walk of Riverside Office.",
+        "The participant list used matches exactly Alex, Priya, Jordan with no invented names.",
+        "The response checks or mentions checking current weather before finalizing a walkable suggestion.",
+        "Upon acceptance, a file named LUNCH-2026-09-01.md is written with frontmatter fields name, participants, date, and location matching the template in SKILL.md."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Weekly lunch time for Sam, Lee, and Nadia -- we're based at the Innovation Hub. Sam's birthday was 3 days ago and we haven't done a birthday lunch for them yet.",
+      "expected_output": "The assistant explicitly notes Sam's recent birthday as a factor in the decision (for example, prioritizing Sam's preference or picking a location suited to a small celebration), and surfaces this consideration in its summary before suggesting a location.",
+      "assertions": [
+        "The response explicitly mentions Sam's birthday as a factor considered in the decision.",
+        "The final summary or decision references the birthday consideration rather than treating this like an ordinary lunch pick.",
+        "The participant list used is limited to Sam, Lee, Nadia with no invented names."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Lunch time for Chris, Dana, and Priya at the Harbor Office -- it's pouring rain right now and doesn't look like it'll let up. No recent birthdays.",
+      "expected_output": "Because of the rain, the assistant does not suggest walking to a restaurant; instead it proposes a delivery option available within a comparable (~15 minute) range of Harbor Office.",
+      "assertions": [
+        "The response identifies the weather (rain) as unsuitable for a walking trip.",
+        "The suggested option is explicitly a delivery/order-in service rather than a venue to walk to.",
+        "The delivery option is framed as being within a comparable distance/range to the ~15 minute walking guideline."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "It's Tuesday lunch again -- Alex, Priya, and Jordan, still at the Riverside Office. No birthdays. We've stored our past picks, please take them into account this time.",
+      "expected_output": "The assistant reads the stored past decisions (Curry Palace on 2026-08-25, Sushi Bar on 2026-08-18) and avoids suggesting Curry Palace again -- the most recent pick -- aiming to rotate variety instead of repeating the same location consecutively.",
+      "files": [
+        "evals/files/LUNCH-2026-08-25.md",
+        "evals/files/LUNCH-2026-08-18.md"
+      ],
+      "assertions": [
+        "The response references the previously stored lunch decisions before making a new suggestion.",
+        "The newly suggested location is not Curry Palace, the immediately prior pick.",
+        "The response explains the choice partly in terms of rotating away from recently visited places rather than picking at random."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Can you pick today's lunch spot for the team?",
+      "expected_output": "Since no participant names or current location were given, the assistant asks a clarifying question for the missing information (participants and/or current location) instead of guessing or fabricating names and a location.",
+      "assertions": [
+        "The assistant does not invent participant names or a team location.",
+        "The assistant asks the user for the missing participant list and/or current location before proceeding.",
+        "No lunch location is finalized and no LUNCH-*.md file is written in this turn."
+      ]
+    }
+  ]
+}
