@@ -37,6 +37,16 @@ https://agentskills.io/skill-creation/evaluating-skills
 
 `evals.json`
 
+<!--
+
+skill-creator plugin installed?
+
+delete select-lunch-location-workspace
+
+Evaluate "select-lunch-location" skill using provided `evals.json`.
+
+-->
+
 ---
 
 # Tool 2
@@ -46,6 +56,16 @@ https://agentskills.io/skill-creation/evaluating-skills
 https://www.promptfoo.dev/
 
 `promptfooconfig.yaml`
+
+<!--
+
+cd eval-X
+promptfoo eval
+promptfoo view
+
+symlinks don't work?! --> Copy/paste skill into fixture.
+
+-->
 
 ---
 

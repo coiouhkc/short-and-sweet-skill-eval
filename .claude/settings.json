@@ -4,7 +4,10 @@
   },
   "permissions": {
     "deny": [
-      "Read(SLIDES.md)"
+      "Read(LICENSE)",
+      "Read(SLIDES.md)",
+      "Read(resources)",
+      "Read(eval-*)"
     ]
   }
 }
