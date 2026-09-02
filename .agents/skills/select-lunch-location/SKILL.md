@@ -31,3 +31,8 @@ location: <location>
 .
 
 If there are any already stored decisions available, use them as exclusion criteria for the suggestion to ensure, the team does not visit same location consecutively many times in a row. Try to rotate available options as much as possible.
+
+## Important
+
+* do not ask for any confirmations about the final choice of the lunch location, proceed with the most suitable one by default.
+* summarize your actions when making the final decision, make sure to mention the reference used for current weather evaluation.

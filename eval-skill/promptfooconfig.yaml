@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+description: 'Getting started'
+
+prompts:
+  - '{{request}}'
+
+providers:
+  - id: anthropic:claude-agent-sdk
+    config:
+      model: claude-sonnet-4-6
+      apiKeyRequired: false
+      setting_sources: ['project']
+      working_dir: ./fixtures/v1
+      skills: ['select-lunch-location']
+      append_allowed_tools: ['Read', 'Grep', 'Glob', 'Edit', 'Write', 'Bash', 'Skill', 'WebFetch', 'WebSearch']
+      permission_mode: 'acceptEdits'
+
+defaultTest:
+  options:
+    provider: anthropic:claude-agent-sdk
+
+tests:
+  - vars:
+      request: Time for our weekly team lunch! It's just Alex, Priya, and Jordan today, and we're all at the Riverside Office in Chicago. Nobody's had a birthday recently. Find us somewhere good.
+    assert:
+      - type: skill-used
+        value: 'select-lunch-location'
+      - type: g-eval
+        value:
+          - "The response proposes exactly one specific restaurant/location, not a generic category or a list of options with no pick."
+          - "The proposed location is described as within roughly a 15-minute walk of Riverside Office."
+          - "The participant list used matches exactly Alex, Priya, Jordan with no invented names."
+          - "The response checks or mentions checking current weather before finalizing a walkable suggestion."
+          - "Upon acceptance, a file named LUNCH-<today's-data-in-yyyy-MM-dd-format>.md is written with frontmatter fields name, participants, date, and location matching the template in SKILL.md."

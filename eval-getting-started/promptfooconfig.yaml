@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+description: 'Testing skill'
+
+prompts:
+  - 'Convert the following English text to {{language}}: {{input}}'
+
+providers:
+  - id: anthropic:messages:claude-sonnet-4-6
+    config:
+      apiKeyRequired: false
+
+tests:
+  - vars:
+      language: French
+      input: Hello world
+    assert:
+      - type: contains
+        value: 'Bonjour le monde'
+  - vars:
+      language: Spanish
+      input: Where is the library?
+    assert:
+      - type: icontains
+        value: 'Dónde está la biblioteca'
