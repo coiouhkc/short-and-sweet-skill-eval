@@ -63,7 +63,7 @@ cd eval-X
 promptfoo eval
 promptfoo view
 
-symlinks don't work?! --> Copy/paste skill into fixture.
+symlinks don't work?! -- Copy/paste skill into fixture.
 
 -->
 
